@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hue</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<h1>Hue</h1>
+		<h2>Rooms</h2>
+		<% for (const room of rooms) { %>
+			<h3><%= room.name %></h3>
+			
+			<small>
+			<% if (!room.state.any_on) { %>
+			<a href="<%= linkPrefix %>/api/room/<%= room.id %>/on">[on]</a>
+			<% } else { %>
+			[on]
+			<% } %>
+			
+			<% if (room.state.any_on) { %>
+			<a href="<%= linkPrefix %>/api/room/<%= room.id %>/off">[off]</a>
+			<% } else { %>
+			[off]
+			<% } %>
+			</small>
+			
+			<ul>
+			<% for (const light of room.lights) { %>
+				<li><%= light.name %> <small>
+				<% if (!light.state.on) { %>
+				<a href="<%= linkPrefix %>/api/light/<%= light.id %>/on">[on]</a>
+				<% } else { %>
+				[on]
+				<% } %>
+				
+				<% if (light.state.on) { %>
+				<a href="<%= linkPrefix %>/api/light/<%= light.id %>/off">[off]</a>
+				<% } else { %>
+				[off]
+				<% } %>
+				
+				<% if (light.state.unreachable) { %>
+				<i>unreachable</i>
+				<% } %>
+				</small>
+				</li>
+				<% } %>
+			</ul>
+			
+			<% if (room.scenes && room.scenes.length > 0) { %>
+				<h4>Scenes</h4>
+				<ul>
+				<% for (const scene of room.scenes) { %>
+					<li><a href="<%= linkPrefix %>/api/scene/<%= scene.id %>/activate"><%= scene.name %></a></li>
+					
+				<% } %>
+			<% } %>
+			</ul>
+		<% } %>
+	</body>
+</html>
