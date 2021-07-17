@@ -1,8 +1,10 @@
 # underpass
 
-Basic web page to control Philips Hue devices. Originally created to allow me to control Hue devices from my BlackBerry. It uses basic HTML, no JavaScript, and completely server-sided logic, if ran locally over HTTP (more on this below) it can be used on any internet enabled device that has had it's wings clipped by SSL.
+Basic web page to control Philips Hue devices. Originally created to allow me to control Hue devices from my BlackBerry. It uses basic HTML, no JavaScript, and all logic is completely server-sided. If ran locally over HTTP (more on this below) it can be used on any internet enabled device that has had it's wings clipped by SSL.
 
 ![Preview Image](https://raw.githubusercontent.com/harrego/underpass/main/.github/preview.png)
+
+[Example video](https://raw.githubusercontent.com/harrego/underpass/main/.github/preview.mp4) of underpass on a BlackBerry.
 
 ## Usage
 
